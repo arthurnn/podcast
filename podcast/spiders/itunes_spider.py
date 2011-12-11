@@ -62,7 +62,10 @@ class ItunesSpider(BaseSpider):
             lang = None
         
         try:
-            website = hxs.select('//a[contains(text(),"Podcast Website")]/@href').extract()[0]
+            extractor = SgmlLinkExtractor(restrict_xpaths='//a[contains(text(),"Podcast Website")]')
+            website = extractor.extract_links(response)[0].url
+            
+            #website = hxs.select('//a[contains(text(),"Podcast Website")]/@href').extract()[0]
         except:
             website = None
         
