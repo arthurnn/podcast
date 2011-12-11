@@ -12,7 +12,14 @@ BOT_VERSION = '1.0'
 
 SPIDER_MODULES = ['podcast.spiders']
 NEWSPIDER_MODULE = 'podcast.spiders'
+DEFAULT_ITEM_CLASS = 'scrapy.item.Item'
 USER_AGENT = '%s/%s' % (BOT_NAME, BOT_VERSION)
+
+
+ITEM_PIPELINES = (
+    'podcast.pipelines.MySQLStorePipeline',
+)
+
 
 DEPTH_LIMIT=7
 CONCURRENT_ITEMS = 200
