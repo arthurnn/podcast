@@ -41,10 +41,25 @@ class ItunesSpider(BaseSpider):
     def parsePodcast(self, response):
         hxs = HtmlXPathSelector(response)
         
-        title = hxs.select('//div[contains(@id,"title")]/h1/text()').extract()[0]
-        author = hxs.select('//div[contains(@id,"title")]/h2/text()').extract()[0]
-        category = hxs.select('//li[contains(@class,"genre")]/a/text()').extract()[0]
-        lang = hxs.select('//li[contains(@class,"language")]/text()').extract()[0]
+        try:
+            title = hxs.select('//div[contains(@id,"title")]/h1/text()').extract()[0]
+        except:
+            title = None
+        
+        try: 
+            author = hxs.select('//div[contains(@id,"title")]/h2/text()').extract()[0]
+        except:
+            author = None
+            
+        try:
+            category = hxs.select('//li[contains(@class,"genre")]/a/text()').extract()[0]
+        except:
+            category = None
+            
+        try:
+            lang = hxs.select('//li[contains(@class,"language")]/text()').extract()[0]
+        except:
+            lang = None
         
         try:
             website = hxs.select('//a[contains(text(),"Podcast Website")]/@href').extract()[0]
