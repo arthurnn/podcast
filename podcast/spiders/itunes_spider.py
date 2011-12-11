@@ -92,7 +92,7 @@ class ItunesSpider(BaseSpider):
 
 
     def parse(self, response):
-        yield Request('http://itunes.apple.com/us/genre/podcasts-business/id1321', callback=self.parseLinks)
-#        hxs = HtmlXPathSelector(response)
-#        for url in hxs.select('//a[contains(@class,"top-level-genre")]/@href').extract():
-#            yield Request(url, callback=self.parseLinks)
+        #yield Request('http://itunes.apple.com/us/genre/podcasts-business/id1321', callback=self.parseLinks)
+        hxs = HtmlXPathSelector(response)
+        for url in hxs.select('//a[contains(@class,"top-level-genre")]/@href').extract():
+            yield Request(url, callback=self.parseLinks)
