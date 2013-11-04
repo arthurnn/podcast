@@ -20,3 +20,6 @@
 		
 	5. Just keep watching the spiders making their work:
 		http://localhost:6800/
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/arthurnn/podcast/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
